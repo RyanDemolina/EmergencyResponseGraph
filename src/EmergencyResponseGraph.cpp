@@ -31,4 +31,27 @@ float EmergencyResponseGraph::getDistance(int source, int dest) {
     return 0;
 }
 
+vector<int> EmergencyResponseGraph::getVertices() const {
+    vector<int> vertices;
+    vertices.reserve(adjList.size());
+    for (auto& kv : adjList) {
+        vertices.push_back(kv.first);
+    }
+    return vertices;
+}
+
+
+vector<tuple<int, int, float>> EmergencyResponseGraph::getEdges() const {
+    vector<tuple< int, int, float>> edges;
+    for (auto& kv : adjList) {
+        int u = kv.first;
+        for (auto& p : kv.second) {
+            int v = p.first;
+            int w = p.second;
+            edges.emplace_back(u, v, w);
+        }
+    }
+    return edges;
+}
+
 
