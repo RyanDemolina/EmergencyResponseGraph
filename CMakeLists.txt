@@ -8,4 +8,6 @@ include_directories(.)
 add_executable(Main
         src/EmergencyResponseGraph.cpp
         src/EmergencyResponseGraph.h
-        src/main.cpp)
+        src/main.cpp
+        src/Djikstras.hpp
+        src/Djikstras.cpp)
