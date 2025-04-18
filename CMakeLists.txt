@@ -9,5 +9,6 @@ add_executable(Main
         src/EmergencyResponseGraph.cpp
         src/EmergencyResponseGraph.h
         src/main.cpp
-        src/Djikstras.hpp
-        src/Djikstras.cpp)
+        src/EmergencyResponseBellmanFord.h
+        src/EmergencyResponseBellmanFord.cpp 
+        )
