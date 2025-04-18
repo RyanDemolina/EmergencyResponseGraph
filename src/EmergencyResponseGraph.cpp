@@ -4,9 +4,7 @@
 
 void EmergencyResponseGraph::insertEdge(int source, int dest, float dist) {
     adjList[source].push_back(make_pair(dest, dist));
-    if (adjList.find(dest) == adjList.end()) {
-        adjList[dest] = {};
-    }
+    adjList[dest].push_back(make_pair(source, dist));
 }
 
 void EmergencyResponseGraph::insertCoordinates(int vertex, float lat, float lon) {
