@@ -1,9 +1,22 @@
 #include <iostream>
 #include <sstream>
 #include <fstream>
+#include <chrono>
+#include <cstdlib>
 #include <src/EmergencyResponseGraph.h>
+#include <src/Djikstras.hpp>
+#include <src/EmergencyResponseBellmanFord.h>
 
 using namespace std;
+using namespace std::chrono;
+
+void write_path_to_csv(EmergencyResponseGraph &graph, vector<int> path) {
+   ofstream outputFile("path.csv", ios::out);
+   for (int v: path) {
+       outputFile << graph.getCoordinates(v).first << ", " << graph.getCoordinates(v).second << endl;
+   }
+   outputFile.close();
+}
 
 int main() {
 
@@ -41,6 +54,52 @@ int main() {
     }
     fin.close();
 
-    
+    int source = graph.getHospitalVertex();
+    int dest = -1;
+
+    while (dest == -1) {
+        int select;
+        cout << "Please Select An Option:" << endl;
+        cout << "1. Select Target Destination" << endl;
+        cout << "2. Generate Random Destination" << endl;
+        cout << "Choice:";
+        cin >> select;
+
+
+        if (select == 1) {
+            cout << "Choose a Number Between 0 and " << (graph.getVertices().size() - 1) << endl;
+            cout << "Your Desired Destination: ";
+            cin >> dest;
+        } else if (select == 2) {
+            dest = rand() % (graph.getVertices().size() - 1);
+        } else {
+            cout << "Whoops! Not a Valid Option" << endl;
+            continue;
+        }
+    }
+
+    cout << endl;
+
+    Djikstras d;
+    auto start = high_resolution_clock::now();
+    vector<int> Dijkstra = d.shortestPath(graph, source, dest);
+    auto end = high_resolution_clock::now();
+    auto duration = duration_cast<milliseconds>(end - start);
+    cout << "Time Taken For Dijkstra's Algorithm: " << duration.count() << " milliseconds" << endl;
+
+    if (Dijkstra.empty()) {
+        cout << "No Path Was Found" << endl;
+    }
+
+    start = high_resolution_clock::now();
+    vector<int> Bellman_Ford = shortestBellmanFordPath(graph, source, dest);
+    end = high_resolution_clock::now();
+    duration = duration_cast<milliseconds>(end - start);
+    cout << "Time Taken For Bellman-Ford Algorithm: " << duration.count() << " milliseconds" << endl;
+
+    cout << endl;
+
+    write_path_to_csv(graph, Dijkstra);
+    cout << "Path Written To path.csv" << endl;
     return 0;
 }
