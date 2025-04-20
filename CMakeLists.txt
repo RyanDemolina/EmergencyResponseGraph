@@ -6,9 +6,10 @@ set(CMAKE_CXX_STANDARD 14)
 include_directories(.)
 
 add_executable(Main
-        src/EmergencyResponseGraph.cpp
         src/EmergencyResponseGraph.h
         src/main.cpp
         src/EmergencyResponseBellmanFord.h
-        src/EmergencyResponseBellmanFord.cpp 
-        )
+        src/EmergencyResponseGraph.cpp
+        src/Djikstras.cpp
+        src/EmergencyResponseBellmanFord.cpp
+)
