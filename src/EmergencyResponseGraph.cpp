@@ -52,3 +52,12 @@ vector<tuple<int, int, float>> EmergencyResponseGraph::getEdges() const {
     }
     return edges;
 }
+
+pair<float, float> EmergencyResponseGraph::getCoordinates(int vertex) {
+    return coordinates[vertex];
+}
+
+int EmergencyResponseGraph::getHospitalVertex() {
+    return hospital_vertex;
+}
+

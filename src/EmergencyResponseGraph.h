@@ -1,5 +1,6 @@
 #include <vector>
 #include <unordered_map>
+#pragma once
 
 using namespace std;
 
@@ -7,6 +8,7 @@ class EmergencyResponseGraph {
     private:
         unordered_map<int, vector<pair<int, float>>> adjList;
         unordered_map<int, pair<float, float>> coordinates;
+        int hospital_vertex = 1351;
 
     public:
         EmergencyResponseGraph() {};
@@ -16,5 +18,7 @@ class EmergencyResponseGraph {
         float getDistance(int source, int dest);
         vector<int> getVertices() const;
         vector<tuple<int, int, float>> getEdges() const;
+        pair<float, float> getCoordinates(int vertex);
+        int getHospitalVertex();
 };
 
