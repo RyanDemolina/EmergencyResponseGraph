@@ -14,8 +14,8 @@ class EmergencyResponseGraph {
         EmergencyResponseGraph() {};
         void insertEdge(int source, int dest, float dist);
         void insertCoordinates(int vertex, float lat, float lon);
-        vector<int> getAdjacent(int vertex);
-        float getDistance(int source, int dest);
+        vector<int> getAdjacent(int vertex) const;
+        float getDistance(int source, int dest) const;
         vector<int> getVertices() const;
         vector<tuple<int, int, float>> getEdges() const;
         pair<float, float> getCoordinates(int vertex);
