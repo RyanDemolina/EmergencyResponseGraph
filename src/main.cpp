@@ -53,8 +53,14 @@ int main() {
         graph.insertCoordinates(stoi(source), stof(source_lat), stof(source_long));
         graph.insertCoordinates(stoi(destination), stof(dest_lat), stof(dest_long));
     }
-    fin.close();
 
+    for (int i = 0; i < 148619; i++) {
+        if (graph.getCoordinates(i).first == 0) {
+            graph.insertVertex(i);
+        }
+    }
+    fin.close();
+    
     int source = graph.getHospitalVertex();
     int dest = -1;
 
@@ -88,10 +94,6 @@ int main() {
     auto duration = duration_cast<milliseconds>(end - start);
     cout << "Time Taken For Dijkstra's Algorithm: " << duration.count() << " milliseconds" << endl;
 
-    if (Dijkstra.empty()) {
-        cout << "No Path Was Found" << endl;
-    }
-
     start = high_resolution_clock::now();
     vector<int> Bellman_Ford = shortestBellmanFordPath(graph, source, dest);
     end = high_resolution_clock::now();
@@ -100,10 +102,15 @@ int main() {
 
     cout << endl;
 
-    write_path_to_csv(graph, Dijkstra, "Dijkstra.csv");
-    cout << "Path Written To Dijkstra.csv" << endl;
+    if (Dijkstra.empty()) {
+        cout << "Sorry! No Path Was Found" << endl;
+    }
+    else {
+        write_path_to_csv(graph, Dijkstra, "Dijkstra.csv");
+        cout << "Path Written To Dijkstra.csv" << endl;
 
-    write_path_to_csv(graph, Dijkstra, "BellmanFord.csv");
-    cout << "Path Written To BellmanFord.csv" << endl;
+        write_path_to_csv(graph, Dijkstra, "BellmanFord.csv");
+        cout << "Path Written To BellmanFord.csv" << endl;
+    }
     return 0;
 }

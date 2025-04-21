@@ -2,6 +2,10 @@
 #include <tuple>
 
 
+void EmergencyResponseGraph::insertVertex(int vertex) {
+    adjList[vertex] = {};
+}
+
 void EmergencyResponseGraph::insertEdge(int source, int dest, float dist) {
     adjList[source].push_back(make_pair(dest, dist));
     adjList[dest].push_back(make_pair(source, dist));
@@ -54,6 +58,9 @@ vector<tuple<int, int, float>> EmergencyResponseGraph::getEdges() const {
 }
 
 pair<float, float> EmergencyResponseGraph::getCoordinates(int vertex) {
+    if (coordinates.find(vertex) == coordinates.end()) {
+        return make_pair(0, 0);
+    }
     return coordinates[vertex];
 }
 

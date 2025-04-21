@@ -20,5 +20,6 @@ class EmergencyResponseGraph {
         vector<tuple<int, int, float>> getEdges() const;
         pair<float, float> getCoordinates(int vertex);
         int getHospitalVertex();
+        void insertVertex(int vertex);
 };
 
