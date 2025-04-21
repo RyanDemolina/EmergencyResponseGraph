@@ -13,18 +13,18 @@ void EmergencyResponseGraph::insertCoordinates(int vertex, float lat, float lon)
     }
 }
 
-vector<int> EmergencyResponseGraph::getAdjacent(int vertex) {
+vector<int> EmergencyResponseGraph::getAdjacent(int vertex) const{
     vector<int> adjacent;
-    for (pair<int, float> adj: adjList[vertex]) {
-        adjacent.push_back(adj.first);
+    for (auto& p : adjList.at(vertex)) {
+        adjacent.push_back(p.first);
     }
     return adjacent;
 }
 
-float EmergencyResponseGraph::getDistance(int source, int dest) {
-    for (pair<int, float> adj: adjList[source]) {
-        if (adj.first == dest) {
-            return adj.second;
+float EmergencyResponseGraph::getDistance(int source, int dest) const {
+    for (auto& adjacent : adjList.at(source)) {
+        if (adjacent.first == dest) {
+            return adjacent.second;
         }
     }
     return 0;
