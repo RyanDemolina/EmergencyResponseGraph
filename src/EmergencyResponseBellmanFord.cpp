@@ -65,3 +65,12 @@ vector<int> shortestBellmanFordPath(
     reverse(path.begin(), path.end());      // reverse to get in order
     return path;
 }
+
+
+/*
+References for Bellman-Ford/SPFA:
+
+- https://www.geeksforgeeks.org/bellman-ford-algorithm-dp-23/
+- https://ufl.instructure.com/courses/525732/pages/module-11-graph-traversals-and-algorithms?module_item_id=11625530
+- https://www.geeksforgeeks.org/shortest-path-faster-algorithm/
+*/
