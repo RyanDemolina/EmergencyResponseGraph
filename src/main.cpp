@@ -10,8 +10,9 @@
 using namespace std;
 using namespace std::chrono;
 
-void write_path_to_csv(EmergencyResponseGraph &graph, vector<int> path) {
-   ofstream outputFile("path.csv", ios::out);
+void write_path_to_csv(EmergencyResponseGraph &graph, vector<int> path, string filename) {
+   string file_path = "../" + filename;
+   ofstream outputFile(file_path, ios::out);
    for (int v: path) {
        outputFile << graph.getCoordinates(v).first << ", " << graph.getCoordinates(v).second << endl;
    }
@@ -99,7 +100,10 @@ int main() {
 
     cout << endl;
 
-    write_path_to_csv(graph, Dijkstra);
-    cout << "Path Written To path.csv" << endl;
+    write_path_to_csv(graph, Dijkstra, "Dijkstra.csv");
+    cout << "Path Written To Dijkstra.csv" << endl;
+
+    write_path_to_csv(graph, Dijkstra, "BellmanFord.csv");
+    cout << "Path Written To BellmanFord.csv" << endl;
     return 0;
 }
