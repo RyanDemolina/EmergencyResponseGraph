@@ -3,7 +3,7 @@ This is the template for Project 3 repositories. It includes all the assignment 
 
 <h2> Emergency Response Path </h2>
 
-Our project’s goal is to determine the shortest path to and from a point to a nearby hospital in order to minimize response time to an emergency.
+Our project’s goal is to determine the shortest path to and from a point to a nearby hospital in order to minimize response time to an emergency. Since time is crucial when responding to an emergency, it is important for emergency vehicles to take the shortest route to get to and from their desired location.
 
 ## Getting Started with the Project
 
@@ -13,8 +13,8 @@ Our project’s goal is to determine the shortest path to and from a point to a 
    ```
 
 2. Open in CLion
-   Open CLion
-   Select File -> New -> Project From Version Control -> Enter the repository url in the given space
+   * Open CLion
+   * Select File -> New -> Project From Version Control -> Enter the repository url in the given space
 
 ## Visualizing Path 
 
