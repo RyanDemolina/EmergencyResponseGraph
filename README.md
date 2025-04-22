@@ -1,5 +1,4 @@
 <H1> COP3530 - Project 3 </h1>
-This is the template for Project 3 repositories. It includes all the assignment instructions and documentation to help you use GitHub.
 
 <h2> Emergency Response Path </h2>
 
@@ -11,6 +10,7 @@ Our project’s goal is to determine the shortest path to and from a point to a 
    ```sh
    git clone (https://github.com/RyanDemolina/EmergencyResponseGraph.git)
    ```
+OR
 
 2. Open in CLion
    * Open CLion
@@ -30,4 +30,4 @@ Within the colab, on the left hand side menu, select Files -> Upload Files -> Se
 
 To run the full notebook, at the top ribbon, select Runtime -> Run All
 
-### Enjoy Your Interactive Visualization of the Shortest Path
+### Enjoy Your Interactive Visualization of the Shortest Path!!!
