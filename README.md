@@ -8,7 +8,7 @@ Our project’s goal is to determine the shortest path to and from a point to a 
 
 1. Clone the repository
    ```sh
-   git clone (https://github.com/RyanDemolina/EmergencyResponseGraph.git)
+   git clone https://github.com/RyanDemolina/EmergencyResponseGraph.git
    ```
 OR
 
