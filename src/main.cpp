@@ -63,7 +63,8 @@ int main() {
     
     int source = graph.getHospitalVertex();
     int dest = -1;
-
+    cout << "An Emergency Has Appeared!!!" << endl;
+    cout << endl;
     while (dest == -1) {
         int select;
         cout << "Please Select An Option:" << endl;
